@@ -1,4 +1,4 @@
- package com.example.springjpalearning.entity;
+package com.example.springjpalearning.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +14,10 @@ public class Course {
 
     public Course(Long id, String name) {
         this.id = id;
+        this.name = name;
+    }
+
+    public Course(String name) {
         this.name = name;
     }
 
@@ -34,14 +38,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", name='" + getName() + "'" +
-            "}";
+        return "{" + " id='" + getId() + "'" + ", name='" + getName() + "'" + "}";
     }
 
-
 }
-    
-
-   
