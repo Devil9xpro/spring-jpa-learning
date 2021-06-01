@@ -26,7 +26,8 @@ public class SpringJpaLearningApplication implements CommandLineRunner {
 		// courseRepository.save(new Course("Microservices in 100 steps"));
 		// courseRepository.save(new Course("Microservices in 100 steps"));
 
-		courseRepository.playWithEntityManager();
+		// courseRepository.playWithEntityManager();
+		courseRepository.updateAndCreationTimeStamp();
 	}
 	
 }

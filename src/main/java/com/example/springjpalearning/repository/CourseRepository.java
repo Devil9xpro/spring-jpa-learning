@@ -56,4 +56,12 @@ public class CourseRepository {
         em.flush();
     }
 
+    public void updateAndCreationTimeStamp(){
+        Course course1 = new Course("Web Services in 100 steps");
+        em.persist(course1);
+
+        Course course2 = findById(10001L);
+        course2.setName("JPA in 50 steps - Updated");
+    }
+
 }
