@@ -1,10 +1,9 @@
-package com.example;
+package com.example.springjpalearning;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import com.example.springjpalearning.SpringJpaLearningApplication;
 import com.example.springjpalearning.entity.Course;
 import com.example.springjpalearning.repository.CourseRepository;
 
