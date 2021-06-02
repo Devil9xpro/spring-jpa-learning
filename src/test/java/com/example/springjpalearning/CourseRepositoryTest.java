@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
-
 @SpringBootTest(classes = SpringJpaLearningApplication.class)
 class CourseRepositoryTest {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -74,6 +73,20 @@ class CourseRepositoryTest {
 	@DirtiesContext
 	public void playWithEntityManagerTest() {
 		courseRepository.playWithEntityManager();
+	}
+
+	@Test
+	public void findAllByNamedQuery() {
+		TypedQuery<Course> query = em.createNamedQuery("query_get_all_course", Course.class);
+		List<Course> rList = query.getResultList();
+		logger.info("Select c From Course c -> {}", rList);
+	}
+
+	@Test
+	public void findByNamedWhereQuery() {
+		TypedQuery<Course> query = em.createNamedQuery("query_get_100_steps_course", Course.class);
+		List<Course> rList = query.getResultList();
+		logger.info("Select c From Course c -> {}", rList);
 	}
 
 }
