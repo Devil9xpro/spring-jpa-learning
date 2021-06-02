@@ -32,4 +32,11 @@ public class StudentRepository {
         logger.info("student's passport -> {}", student.getPassport());
     }
 
+    //bidirectional
+    public void retrievePassportAssociatedStudent(){
+        Passport passport = em.find(Passport.class, 40001L);
+        logger.info("passport -> {}", passport);
+        logger.info("student -> {}", passport.getStudent());
+    }
+
 }

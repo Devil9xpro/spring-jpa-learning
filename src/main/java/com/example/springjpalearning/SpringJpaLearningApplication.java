@@ -34,7 +34,8 @@ public class SpringJpaLearningApplication implements CommandLineRunner {
 		// courseRepository.updateAndCreationTimeStamp();
 
 		// studentRepository.saveStudentWithPassport();
-		studentRepository.retrieveStudentAndPassportDetails();
+		// studentRepository.retrieveStudentAndPassportDetails();
+		studentRepository.retrievePassportAssociatedStudent();
 	}
 	
 }
