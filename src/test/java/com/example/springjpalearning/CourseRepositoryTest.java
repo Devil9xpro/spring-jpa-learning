@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
 import com.example.springjpalearning.entity.Course;
+import com.example.springjpalearning.entity.Review;
 import com.example.springjpalearning.repository.CourseRepository;
 
 import org.junit.jupiter.api.Assertions;
@@ -22,6 +24,7 @@ class CourseRepositoryTest {
 
 	@Autowired
 	CourseRepository courseRepository;
+
 
 	@Autowired
 	EntityManager em;
@@ -89,4 +92,17 @@ class CourseRepositoryTest {
 		logger.info("Select c From Course c -> {}", rList);
 	}
 
+	@Test
+	@Transactional
+	public void retrieveReviewsForCourse() {
+		Course course = courseRepository.findById(10001L);
+		logger.info("{}", course.getReviews());
+	}
+
+	@Test
+	@Transactional
+	public void retrieveCourseForReview(){
+		Review review = em.find(Review.class, 50001L);
+		logger.info("retrieveCourseForReview -> {}", review.getCourse());
+	}
 }

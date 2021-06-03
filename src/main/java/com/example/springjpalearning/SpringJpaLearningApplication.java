@@ -1,5 +1,9 @@
 package com.example.springjpalearning;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.springjpalearning.entity.Review;
 import com.example.springjpalearning.repository.CourseRepository;
 import com.example.springjpalearning.repository.StudentRepository;
 
@@ -35,7 +39,12 @@ public class SpringJpaLearningApplication implements CommandLineRunner {
 
 		// studentRepository.saveStudentWithPassport();
 		// studentRepository.retrieveStudentAndPassportDetails();
-		studentRepository.retrievePassportAssociatedStudent();
+		// studentRepository.retrievePassportAssociatedStudent();
+
+		List<Review> reviews = new ArrayList<>();
+		reviews.add(new Review("5", "Great Hands-on stuff"));
+        reviews.add(new Review("5", "Hatsoff"));
+		courseRepository.addReviewsForCourse(10003L, reviews);
 	}
 	
 }
