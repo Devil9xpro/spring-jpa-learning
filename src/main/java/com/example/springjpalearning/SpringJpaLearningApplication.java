@@ -66,11 +66,13 @@ public class SpringJpaLearningApplication implements CommandLineRunner {
 
 		// studentAndCourseManyToManyRepository.insertStudentToCourse(20001L, 10001L);
 
-		employeeRepository.insert(new FullTimeEmployee("Jack", new BigDecimal("10000")));
-		employeeRepository.insert(new PartTimeEmployee("Jill", new BigDecimal("50")));
-		// logger.info("All Employee -> {}", employeeRepository.retrieveAllEmployee());
-		logger.info("All full time Employee -> {}", employeeRepository.retrieveAllFullTimeEmployee());
-		logger.info("All part time Employee -> {}", employeeRepository.retrieveAllPartTimeEmployee());
+		// employeeRepository.insert(new FullTimeEmployee("Jack", new BigDecimal("10000")));
+		// employeeRepository.insert(new PartTimeEmployee("Jill", new BigDecimal("50")));
+		// // logger.info("All Employee -> {}", employeeRepository.retrieveAllEmployee());
+		// logger.info("All full time Employee -> {}", employeeRepository.retrieveAllFullTimeEmployee());
+		// logger.info("All part time Employee -> {}", employeeRepository.retrieveAllPartTimeEmployee());
+
+		
 	}
 
 }
