@@ -1,4 +1,4 @@
-package com.example;
+package com.example.springjpalearning;
 
 import java.util.List;
 
