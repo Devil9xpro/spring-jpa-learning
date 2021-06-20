@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,6 +22,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Table(name = "course")
 @NamedQueries(value = { @NamedQuery(name = "query_get_all_course", query = "Select c From Course c"),
         @NamedQuery(name = "query_get_100_steps_course", query = "Select c From Course c where name like '%100 steps'") })
+@Cacheable
 public class Course {
     @Id
     @GeneratedValue
@@ -104,7 +106,6 @@ public class Course {
     public void addStudent(Student student) {
         this.students.add(student);
     }
-
 
     @Override
     public String toString() {
