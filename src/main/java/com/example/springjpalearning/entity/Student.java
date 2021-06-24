@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,6 +21,9 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Embedded
+    private Address address;
 
     @Column(nullable = false)
     private String name;
@@ -70,6 +74,22 @@ public class Student {
     @Override
     public String toString() {
         return "{" + " id='" + getId() + "'" + ", name='" + getName() + "'" + "}";
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Address getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 
 }
