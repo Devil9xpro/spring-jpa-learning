@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 import com.example.springjpalearning.entity.Course;
 import com.example.springjpalearning.entity.Review;
+import com.example.springjpalearning.entity.ReviewRating;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -74,8 +75,8 @@ public class CourseRepository {
         Course course = findById(10003L);
         logger.info("course.getReviews -> {}", course.getReviews());
         // add 2 reviews to course
-        Review review1 = new Review("5", "Great Hands-on stuff");
-        Review review2 = new Review("5", "Hatsoff");
+        Review review1 = new Review("Great Hands-on stuff", ReviewRating.FIVE);
+        Review review2 = new Review("Hatsoff", ReviewRating.FIVE);
         course.addReview(review1);
         review1.setCourse(course);
         course.addReview(review2);
@@ -90,7 +91,7 @@ public class CourseRepository {
         logger.info("course.getReviews -> {}", course.getReviews());
 
         for (Review review : reviews) {
-            //setting the relationship
+            // setting the relationship
             course.addReview(review);
             review.setCourse(course);
             em.persist(review);
