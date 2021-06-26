@@ -23,6 +23,7 @@ import org.hibernate.annotations.Where;
 @Entity
 @Table(name = "course")
 @NamedQueries(value = { @NamedQuery(name = "query_get_all_course", query = "Select c From Course c"),
+        @NamedQuery(name = "query_get_all_course_join_fetch", query = "Select c From Course c JOIN FETCH c.students"),
         @NamedQuery(name = "query_get_100_steps_course", query = "Select c From Course c where name like '%100 steps'") })
 @Cacheable
 @SQLDelete(sql = "update course set is_deleted=true where id =?")
